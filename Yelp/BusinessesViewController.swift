@@ -8,12 +8,18 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController {
+class BusinessesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var businesses: [Business]!
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
 
 //        Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
 //            self.businesses = businesses
@@ -31,12 +37,36 @@ class BusinessesViewController: UIViewController {
                 println(business.name!)
                 println(business.address!)
             }
+            
+            self.tableView.reloadData()
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell") as! BusinessCell
+        cell.setBusiness(self.businesses[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let businesses = self.businesses {
+            return businesses.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let contentView: UIView = tableView.dataSource!.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        contentView.updateConstraintsIfNeeded()
+        contentView.layoutIfNeeded()
+        return contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
     }
 
     /*
