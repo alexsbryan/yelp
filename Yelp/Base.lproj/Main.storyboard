@@ -41,14 +41,14 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Grand Pu Bah with a longer title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO3-at-2DT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="1. Grand Pu Bah with a longer title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO3-at-2DT">
                                                     <rect key="frame" x="112" y="8" width="241" height="18"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.07 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AG-mH-OMZ">
-                                                    <rect key="frame" x="233" y="11" width="347" height="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.07 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AG-mH-OMZ">
+                                                    <rect key="frame" x="545" y="11" width="35" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="nuW-b5-BMe"/>
                                                         <constraint firstAttribute="height" constant="12" id="tCM-8X-FpO"/>
@@ -109,7 +109,7 @@
                                                 <constraint firstItem="Gs2-VB-5mJ" firstAttribute="leading" secondItem="N0G-12-m4j" secondAttribute="trailing" constant="12" id="1PN-8y-ZlE"/>
                                                 <constraint firstItem="Jey-q0-qOc" firstAttribute="leading" secondItem="N0G-12-m4j" secondAttribute="trailing" constant="12" id="2R0-s8-Ybr"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0AG-mH-OMZ" secondAttribute="trailing" constant="12" id="52C-IM-izn"/>
-                                                <constraint firstItem="0AG-mH-OMZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cO3-at-2DT" secondAttribute="trailing" constant="5" id="6ev-KU-RJn"/>
+                                                <constraint firstItem="0AG-mH-OMZ" firstAttribute="leading" secondItem="cO3-at-2DT" secondAttribute="trailing" constant="5" id="6ev-KU-RJn"/>
                                                 <constraint firstItem="Jey-q0-qOc" firstAttribute="top" secondItem="U6s-d2-PYK" secondAttribute="bottom" constant="5" id="74R-08-cki"/>
                                                 <constraint firstItem="Jey-q0-qOc" firstAttribute="leading" secondItem="N0G-12-m4j" secondAttribute="trailing" constant="12" id="7WY-4y-aFU"/>
                                                 <constraint firstItem="0AG-mH-OMZ" firstAttribute="top" secondItem="3TW-Wb-GXh" secondAttribute="top" constant="11" id="7vo-Ua-5CY"/>
