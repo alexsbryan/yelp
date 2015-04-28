@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BusinessesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FiltersViewControllerDelegate {
 
     var businesses: [Business]!
     
@@ -31,7 +31,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
 //            }
 //        })
         
-        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
+        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: false) { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             
             for business in businesses {
@@ -70,14 +70,23 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         return contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+ 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let navigationViewController = segue.destinationViewController as! UINavigationController
+        
+        let filtersViewController = navigationViewController.topViewController as! FiltersViewController
+        
+        filtersViewController.delegate = self
     }
-    */
+    
+    func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: [String : AnyObject]) {
+        var categories = filters["categories"] as? [String]
+        Business.searchWithTerm("Restaurants", sort: nil, categories: categories, deals: nil) {
+            (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = businesses
+            self.tableView.reloadData()
+        }
+    }
+
 
 }
